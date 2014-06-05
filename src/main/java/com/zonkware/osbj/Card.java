@@ -52,4 +52,12 @@ public class Card {
 		}
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		Card compareCard = (Card) obj;
+		
+		return (compareCard.getSuit().equals(this.getSuit()) && 
+				compareCard.getRank().equals(this.getRank()));
+	}
+	
 }
