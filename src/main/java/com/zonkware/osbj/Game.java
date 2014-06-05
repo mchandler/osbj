@@ -8,15 +8,17 @@ public class Game {
 	private Player player;
 	private Dealer dealer;
 	private ArrayList<Card> deck;
+	private int pot;
 	
-	public Game(float houseBank) {
+	public Game(int houseBank) {
 		this(new Player(), houseBank);
 	}
 	
-	public Game(Player player, float houseBank) {
+	public Game(Player player, int houseBank) {
 		this.setPlayer(player.newGame());
 		dealer = new Dealer();
 		dealer.setMoney(houseBank);
+		pot = 0;
 		
 		initializeNewDeck();
 	}
@@ -25,6 +27,7 @@ public class Game {
 		this.setPlayer(player.newGame());
 		this.dealer = dealer;
 		this.deck = deck;
+		pot = 0;
 	}
 	
 	public Player getPlayer() {

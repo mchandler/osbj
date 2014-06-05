@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Player {
 	
-	private float money;
+	private int money;
 	private List<Card> hand;
 	private boolean standing;
 	
@@ -13,7 +13,7 @@ public class Player {
 		newGame();
 	}
 	
-	public Player(float money) {
+	public Player(int money) {
 		this();
 		this.money = money;
 	}
@@ -28,7 +28,7 @@ public class Player {
 		return money;
 	}
 	
-	public void setMoney(float money) {
+	public void setMoney(int money) {
 		this.money = money;
 	}
 
