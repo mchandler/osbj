@@ -98,4 +98,17 @@ public class Player {
 		return (!isBusted() && totalHand() > player.totalHand()) ? true : false;
 	}
 	
+	public int bet(int bet) {
+		if (money >= bet) {
+			money =- bet;
+			return bet;
+		}
+		
+		return 0;
+	}
+	
+	public void reward(int pot) {
+		money =+ pot;
+	}
+	
 }

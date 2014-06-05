@@ -18,7 +18,6 @@ public class Game {
 		this.setPlayer(player.newGame());
 		dealer = new Dealer();
 		dealer.setMoney(houseBank);
-		pot = 0;
 		
 		initializeNewDeck();
 	}
@@ -27,7 +26,6 @@ public class Game {
 		this.setPlayer(player.newGame());
 		this.dealer = dealer;
 		this.deck = deck;
-		pot = 0;
 	}
 	
 	public Player getPlayer() {
@@ -74,6 +72,22 @@ public class Game {
 		return card;
 	}
 	
+	public void takeBetFrom(Player player, int bet) {
+		pot =+ player.bet(bet);
+	}
+	
+	public void reward(Player player) {
+		player.reward(pot);
+		pot = 0;
+	}
+	
+	public void push() {
+		int reward = pot / 2;
+		player.reward(reward);
+		dealer.reward(reward);
+		pot = 0;
+	}
+	
 	private void initializeNewDeck() {
 		deck = shuffleNewDeck();
 	}
@@ -98,7 +112,6 @@ public class Game {
 	}
 	
 	private void midPlayShuffle() {
-		System.out.println("Empty Deck: re-shuffling!");
 		initializeNewDeck();
 		
 		for (Card card : player.getHand()) {
@@ -108,7 +121,6 @@ public class Game {
 		for (Card card : dealer.getHand()) {
 			deck.remove(card);
 		}
-		System.out.println("Deck size: " + deck.size());
 	}
 	
 }
