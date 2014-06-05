@@ -13,8 +13,14 @@ public class Player {
 		newGame();
 	}
 	
+	public Player(float money) {
+		this();
+		this.money = money;
+	}
+	
 	public Player newGame() {
 		hand = new ArrayList<Card>();
+		setStanding(false);
 		return this;
 	}
 	
@@ -36,6 +42,10 @@ public class Player {
 
 	public void setStanding(boolean standing) {
 		this.standing = standing;
+	}
+	
+	public void stand() {
+		setStanding(true);
 	}
 
 	public void take(Card card) {
