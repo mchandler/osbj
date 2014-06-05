@@ -38,17 +38,28 @@ public class Game {
 	public Dealer getDealer() {
 		return dealer;
 	}
+	
+	public ArrayList<Card> getDeck() {
+		return deck;
+	}
 
-	public void startingDeal() {
+	// starting deal returns true if either player has blackjack
+	public boolean startingDeal() {
 		dealCardTo(dealer, true);
 		dealCardTo(player, true);
 		dealCardTo(dealer, false);
 		dealCardTo(player, true);
+		
+		return (dealer.hasBlackJack() || player.hasBlackJack());
+	}
+	
+	public Card dealCardTo(Player player) {
+		return dealCardTo(player, true);
 	}
 	
 	public Card dealCardTo(Player player, boolean faceUp) {
 		if (deck.size() == 0) {
-			// handle shuffling a new deck and removing cards in play
+			midPlayShuffle();
 		}
 		
 		Card card = deck.get(0);
@@ -81,6 +92,20 @@ public class Game {
 		Collections.shuffle(cards);
 		
 		return cards;
+	}
+	
+	private void midPlayShuffle() {
+		System.out.println("Empty Deck: re-shuffling!");
+		initializeNewDeck();
+		
+		for (Card card : player.getHand()) {
+			deck.remove(card);
+		}
+		
+		for (Card card : dealer.getHand()) {
+			deck.remove(card);
+		}
+		System.out.println("Deck size: " + deck.size());
 	}
 	
 }
