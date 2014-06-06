@@ -13,29 +13,27 @@ public class Dealer extends Player {
 		}
 	}
 	
-	public boolean concludeByStep(Player player) {
+	public boolean competeWith(Player player) {
 		if (player.beats(this)) {
 			willTakeCard = true;
 		}
 		
 		if (player.totalHand() == totalHand()) {
-			return processPushDecisions();
+			processPushDecisions();
 		}
 		
-		if (this.beats(player)) {
+		if (this.beats(player) || this.isBusted()) {
 			stand();
 		}
 		
 		return isStanding();
 	}
 	
-	private boolean processPushDecisions() {
+	private void processPushDecisions() {
 		if (totalHand() >= 16) {
 			stand();
 		} else {
 			willTakeCard = true;
 		}
-		
-		return isStanding();
 	}
 }
