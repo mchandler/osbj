@@ -96,7 +96,8 @@ public class Player {
 	
 	public boolean beats(Player player) {
 		boolean cardsBeaten = player.totalHand() > totalHand() && !player.isBusted();
-		return (!isBusted() && !cardsBeaten) ? true : false;
+		boolean isPush = player.totalHand() == totalHand();
+		return (!isBusted() && !cardsBeaten && !isPush) ? true : false;
 	}
 	
 	public int bet(int bet) {
