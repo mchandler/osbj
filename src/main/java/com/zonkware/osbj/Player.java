@@ -101,7 +101,7 @@ public class Player {
 	
 	public int bet(int bet) {
 		if (money >= bet) {
-			money =- bet;
+			money = money - bet;
 			return bet;
 		}
 		
@@ -109,7 +109,7 @@ public class Player {
 	}
 	
 	public void reward(int pot) {
-		money =+ pot;
+		money = money + pot;
 	}
 	
 }

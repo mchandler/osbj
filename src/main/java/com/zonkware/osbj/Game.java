@@ -25,7 +25,13 @@ public class Game {
 	public Game(Player player, Dealer dealer, ArrayList<Card> deck) {
 		this.setPlayer(player.newGame());
 		this.dealer = dealer;
+		getDealer().newGame();
 		this.deck = deck;
+	}
+	
+	public void newGame() {
+		getPlayer().newGame();
+		getDealer().newGame();
 	}
 	
 	public Player getPlayer() {
@@ -43,7 +49,7 @@ public class Game {
 	public ArrayList<Card> getDeck() {
 		return deck;
 	}
-
+	
 	// starting deal returns true if either player has blackjack
 	public boolean startingDeal() {
 		dealCardTo(dealer, true);
@@ -73,7 +79,7 @@ public class Game {
 	}
 	
 	public void takeBetFrom(Player player, int bet) {
-		pot =+ player.bet(bet);
+		pot = pot + player.bet(bet);
 	}
 	
 	public void reward(Player player) {
