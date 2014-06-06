@@ -60,4 +60,9 @@ public class Card {
 				compareCard.getRank().equals(this.getRank()));
 	}
 	
+	@Override
+	public String toString() {
+		return getRank() + " of " + getSuit();
+	}
+	
 }
