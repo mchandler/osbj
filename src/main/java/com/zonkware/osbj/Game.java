@@ -82,6 +82,11 @@ public class Game {
 		pot = pot + player.bet(bet);
 	}
 	
+	// For easy string conversion
+	public void takeBetFrom(Player player, String bet) {
+		takeBetFrom(player, Integer.parseInt(bet));
+	}
+	
 	public void reward(Player player) {
 		player.reward(pot);
 		pot = 0;
