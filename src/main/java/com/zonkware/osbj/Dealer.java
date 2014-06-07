@@ -2,20 +2,16 @@ package com.zonkware.osbj;
 
 public class Dealer extends Player {
 	
-	private boolean willTakeCard;
-	
 	@Override
 	public void take(Card card) {
 		super.take(card);
 		
-		if (willTakeCard == true) {
-			willTakeCard = false;
-		}
+		setStanding(false);
 	}
 	
 	public boolean competeWith(Player player) {
 		if (player.beats(this)) {
-			willTakeCard = true;
+			setStanding(false);
 		}
 		
 		if (player.totalHand() == totalHand()) {
@@ -29,17 +25,11 @@ public class Dealer extends Player {
 		return isStanding();
 	}
 	
-	public void finishGameWith(Player player) {
-		while (!isStanding()) {
-			competeWith(player);
-		}
-	}
-	
 	private void processPushDecisions() {
 		if (totalHand() >= 16) {
 			stand();
 		} else {
-			willTakeCard = true;
+			setStanding(false);
 		}
 	}
 }
