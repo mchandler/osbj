@@ -62,7 +62,7 @@ public class Player {
 				continue; // hold calculation of aces
 			}
 			
-			total += card.getValue();
+			total = total + card.getValue();
 		}
 		
 		if (aces.size() > 0) {
@@ -70,9 +70,9 @@ public class Player {
 				int bustTest = total + card.getValue();
 				
 				if (bustTest > 21) {
-					total += 1;
+					total = total + 1;
 				} else {
-					total += card.getValue();
+					total = total + card.getValue();
 				}
 			}
 		}
