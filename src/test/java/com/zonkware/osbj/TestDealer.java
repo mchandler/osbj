@@ -55,6 +55,14 @@ public class TestDealer {
 		Player player = riskyPushHandlingTestSetUp();
 		
 		Assert.assertFalse(dealer.competeWith(player)); // dealer plays on 15 hand push
+		
+		Card card1 = new Card("clubs", "A");
+		Card card2 = new Card("diamonds", "A");
+		
+		dealer.take(card1);
+		player.take(card2);
+		
+		Assert.assertTrue(dealer.competeWith(player)); // dealer stands on 16 hand push or greater
 	}
 	
 	private Player cardTakingTestSetUp() {
