@@ -29,6 +29,12 @@ public class Dealer extends Player {
 		return isStanding();
 	}
 	
+	public void finishGameWith(Player player) {
+		while (!isStanding()) {
+			competeWith(player);
+		}
+	}
+	
 	private void processPushDecisions() {
 		if (totalHand() >= 16) {
 			stand();
