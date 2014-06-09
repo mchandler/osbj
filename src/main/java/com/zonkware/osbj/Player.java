@@ -24,7 +24,7 @@ public class Player {
 		return this;
 	}
 	
-	public float getMoney() {
+	public int getMoney() {
 		return money;
 	}
 	
