@@ -38,16 +38,11 @@ public class Card {
 	}
 
 	public int getValue() {
-		switch (rank) {
-		
-		case "J":
-		case "Q":	
-		case "K":
+		if (rank.toUpperCase().equals("J") || rank.toUpperCase().equals("Q") || rank.toUpperCase().equals("K")) {
 			return 10;
-			
-		case "A":
+		} else if (rank.toUpperCase().equals("A")) {
 			return 11;
-		default:
+		} else {
 			return Integer.parseInt(rank);
 		}
 	}
