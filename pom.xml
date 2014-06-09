@@ -2,8 +2,14 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.zonkware</groupId>
   <artifactId>osbj</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <name>Open Source Blackjack Engine</name>
+  
+  <properties>
+  	<java-version>1.7</java-version>
+  	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
   
   <dependencies>
   	<dependency>
