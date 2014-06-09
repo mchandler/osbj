@@ -45,6 +45,9 @@ public class Game {
 	public Dealer getDealer() {
 		return dealer;
 	}
+	public void setDealer(Dealer dealer) {
+		this.dealer = dealer;
+	}
 	
 	public ArrayList<Card> getDeck() {
 		return deck;
