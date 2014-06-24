@@ -3,4 +3,3 @@ build/
 target/
 .project
 .settings/
-src/main/java/com/zonkware/osbj/Main.java
