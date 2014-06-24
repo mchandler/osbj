@@ -1,5 +1,13 @@
 package com.zonkware.osbj;
 
+/**
+ * The Card has little functionality beyond determining a numeric value
+ * and overriding the equals method for simple comparisons. It includes
+ * attributes for setting a suit, rank and whether or not it is face up
+ * on the game table.
+ * @author Mike Chandler
+ *
+ */
 public class Card {
 	
 	private String suit;
@@ -37,6 +45,10 @@ public class Card {
 		this.faceUp = faceUp;
 	}
 
+	/**
+	 * Used to retrieve the value of the card which is critical in determining a player's total hand.
+	 * @return A numeric value based on the card's rank, regardless of the suit.
+	 */
 	public int getValue() {
 		if (rank.toUpperCase().equals("J") || rank.toUpperCase().equals("Q") || rank.toUpperCase().equals("K")) {
 			return 10;
@@ -47,6 +59,11 @@ public class Card {
 		}
 	}
 	
+	/**
+	 * A simple override of the equals method for comparing cards. This method is used behind
+	 * the scenes to remove cards from a re-initialized deck when those cards are currently in
+	 * play.
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		Card compareCard = (Card) obj;
